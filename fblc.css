@@ -281,13 +281,16 @@ a.pure-button-primary {
 }
 
 .home-menu a {
-    color: ##A4A4A4;
+    color: #fff;
+    text-decoration: none;
 }
+
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
     border: none;
     color: #fff;
+    text-decoration: underline;
 }
 
 

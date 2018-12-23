@@ -71,7 +71,7 @@ if (isset($accessToken) || isset($_SESSION['fb_token'])) {
 
  	// making login with facebook url
    $loginUrl = $helper->getLoginUrl(APP_URL, $permissions);
-   	echo '<a href="' . $loginUrl . '">Log in wh Facebook!</a>';
+   //echo '<a href="' . $loginUrl . '">Log in wh Facebook!</a>';
  }
 
 

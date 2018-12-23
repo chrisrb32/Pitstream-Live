@@ -3,6 +3,7 @@
 
 <?php
 $loggedin = 3;
+$loginUrl ="";
 include "header.php";
 include "login.php";
 
@@ -13,10 +14,7 @@ include "login.php";
 </div>
 </div>
 
-<div class="content">
 
-	<h2 class="content-head is-center">Select a page</h2>
-	<div class="pagelist">
 
 <?php
 
@@ -45,7 +43,10 @@ foreach($pages as $page) {
 
 
     echo "
+    <div class='content'>
 
+    	<h2 class='content-head is-center'>Select a page</h2>
+    	<div class='pagelist'>
 
 	<a href=./define.php?pageid=$page[id]>
 		<button class='button-page pure-button'>
@@ -61,9 +62,17 @@ foreach($pages as $page) {
 
 
 	";
+
+
+
 }
 
 
+}else {
+  echo "
+  <div class='content'>
+    <h2 class='content-head is-center'>Please log in first</h2>";
+echo '<a href="' . $loginUrl . '">Log in wh Facebook!</a>';
 }
 	//print_r($pages);
 	//print_r($pages[2][id]);
