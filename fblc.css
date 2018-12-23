@@ -423,6 +423,27 @@ a.pure-button-primary {
   padding: 0.5em 2em;
 }
 
+
+.button-login{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  background-color: #0042b1;
+  color: white;
+  padding: 0.5em 2em;
+}
+
+.content a{
+  text-decoration: none;
+}
+
+.button-login:hover{
+  background-color: #0050d7;
+  border: 0px;
+
+}
+
 .button-create:hover{
   background-color: #ef0000;
   border: 0px;

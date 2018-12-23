@@ -2,7 +2,7 @@
 <html>
 
 <?php
-$loggedin = 3;
+$loggedin = 0;
 $loginUrl ="";
 include "header.php";
 include "login.php";
@@ -22,57 +22,77 @@ include "login.php";
 
 if ($loggedin==1) {
 
+echo "
+<div class='content'>
 
+	<h2 class='content-head is-center'>Select a target for Livestream</h2>
+	<div class='pagelist'>
 
-	//requesting list of pages managed by user (requires permission)
-	$pages = $fb->get('/me/accounts')->getGraphEdge()->asArray();
+<div class='infobox'
+    <label class='pure-form'>
+    You can choose to stream to you personal profile, a page or a group.
+    Events are not supported currently.
+</label>
 
+</div>
 
-//listing pages managed by user
-//echo "</br>Please select the Page you want to create a Live Video Event for:";
-//echo "<table cellpadding='10' cellspacing'10' border='1'>";
-//echo "<tr> <th>Name</th> <th>id</th> <th>access_token</th> <th>category</th> <th>tasks</th> </tr>";
-foreach($pages as $page) {
+<a href='https://fb.cromex.org/select_page.php'>
+  <button class='button-page pure-button'>
+    <div class='button-content-main'>
+        <div class='page'><i class='fas fa-user'></i> Profile
+        </div>
+    </div>
 
-	//print_r ($page);
-
-	$pagepic = $fb->get('/' . $page[id] . '/picture?redirect=0')->getGraphNode()->asArray();
-
-	//print_r ($page[tasks]);
-
-
-
-    echo "
-    <div class='content'>
-
-    	<h2 class='content-head is-center'>Select a page</h2>
-    	<div class='pagelist'>
-
-	<a href=./define.php?pageid=$page[id]>
-		<button class='button-page pure-button'>
-	  <div class='button-content'>
-	<div> <img class='pure-img-responsive' src='$pagepic[url]' alt='$page[name]'></div>
-	<div class='page'>$page[name]</div>
-
-	<div class='push forbidden'>Permissions  <i class='fas fa-times-circle'></i></div>
-
-	</div>
-
-	 </button></a>
-
-
-	";
+  </button>
+</a>
 
 
 
-}
+<a href='https://fb.cromex.org/select_page.php'>
+  <button class='button-page pure-button'>
+    <div class='button-content-main'>
+        <div class='page'><i class='fas fa-flag'></i> Page
+        </div>
+    </div>
+
+  </button>
+</a>
+
+<a href='https://fb.cromex.org/select_group.php'>
+  <button class='button-page pure-button'>
+    <div class='button-content-main'>
+        <div class='page'><i class='fas fa-users'></i> Group
+        </div>
+    </div>
+
+  </button>
+</a>
+
+
+</div>
+
+
+
+";
+
+
 
 
 }else {
   echo "
   <div class='content'>
-    <h2 class='content-head is-center'>Please log in first</h2>";
-echo '<a href="' . $loginUrl . '">Log in wh Facebook!</a>';
+    <h2 class='content-head is-center'>Login</h2>";
+
+echo '
+<a href="' . $loginUrl . '">
+<button class="pure-button button-login" > <i class="fas fa-sign-in-alt"></i>    Login to Facebook
+</button>
+</a>
+
+';
+
+
+
 }
 	//print_r($pages);
 	//print_r($pages[2][id]);
