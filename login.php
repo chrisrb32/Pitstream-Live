@@ -67,7 +67,7 @@ if (isset($accessToken) || isset($_SESSION['fb_token'])) {
  } else {
    $loggedin = 0;
 
-   $permissions = array("publish_video", "publish_pages", "manage_pages", "publish_to_groups");
+   $permissions = array("publish_video", "publish_pages", "manage_pages", "publish_to_groups", "user_videos");
 
  	// making login with facebook url
    $loginUrl = $helper->getLoginUrl(APP_URL, $permissions);

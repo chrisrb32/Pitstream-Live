@@ -4,11 +4,12 @@
 <?php
 $loggedin = 0;
 $loginUrl ="";
-$accessToken="";
+;
 
-print_r ($_GET[type]);
+
 include "header.php";
 include "login.php";
+$accessToken = ($_SESSION[fb_token]);
 ?>
 
 
@@ -20,11 +21,11 @@ include "login.php";
 
 <div class="home-menu pure-menu pure-menu-horizontal">
 						<ul class="pure-menu-list">
-								<li class="pure-menu-item"><a href="#" class="pure-menu-link">Select <?php echo $type ?> </a></li>
+								<li class="pure-menu-item"><a href="#" class="pure-menu-link">Select target <?php echo $type ?> </a></li>
 
-								<li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Define Stream</a></li>
+								<li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Define stream</a></li>
 
-								<li class="pure-menu-item"><a href="#" class="pure-menu-link">Get RTMP Links</a></li>
+								<li class="pure-menu-item"><a href="#" class="pure-menu-link">Get RTMP links</a></li>
 						</ul>
 </div>
 </div>
@@ -98,6 +99,52 @@ include "login.php";
                            </form>
      </div>
      ";
+
+
+		 elseif ($_GET[type]=='Group'){
+
+	 	$grouptoken = $fb->get('/' . $_GET[groupid] . '?fields=access_token')->getGraphNode()->asArray();
+
+	 	$group = $fb->get('/' . $_GET[groupid])->getGraphNode()->asArray();
+
+	   //render form to define Livestream to Facebook Page
+	    echo"
+	    <div class='content'>
+	            <h2 class='content-head is-center'>Create Live Event</h2>
+	                            <form class='pure-form pure-form-stacked' method='POST' action='create.php'>
+	                                <fieldset>
+	                                    <label for='pagetoken'>Group Token</label>
+	                                    <input type='text' name='pagetoken' id='pagetoken' value='$grouptoken[access_token]' readonly='readonly'>
+
+	                                    <label for='page'>Group</label>
+	                                    <input type='text' name='page' id='page' value='$group[name]' readonly='readonly'>
+
+	                                    <label for='pageid'>Group ID</label>
+	                                    <input type='text' name='pageid' id='pageid' value='$group[id]' readonly='readonly'>
+
+	                                    <label for='title'>Title</label>
+	                                    <input type='text' name='title' id='title'>
+
+	                                    <label for='description'>Description</label>
+	                                    <input type='text' name='description' id='description'>
+
+	                                    <button type='submit' class='pure-button button-create' > <i class='fas fa-video'></i>    Create Event</button>
+	                                </fieldset>
+	                            </form>
+	      </div>
+	      ";
+
+	 }
+
+
+
+
+
+
+
+
+
+
 
 } else {
 	// making login with facebook url

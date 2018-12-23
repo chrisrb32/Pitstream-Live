@@ -36,7 +36,7 @@ echo "
 
 </div>
 
-<a href='https://fb.cromex.org/select_page.php'>
+<a href='https://fb.cromex.org/define.php?type=Profile'>
   <button class='button-page pure-button'>
     <div class='button-content-main'>
         <div class='page'><i class='fas fa-user'></i> Profile
@@ -48,7 +48,7 @@ echo "
 
 
 
-<a href='https://fb.cromex.org/select_page.php'>
+<a href='https://fb.cromex.org/select.php?type=Page'>
   <button class='button-page pure-button'>
     <div class='button-content-main'>
         <div class='page'><i class='fas fa-flag'></i> Page
@@ -58,7 +58,7 @@ echo "
   </button>
 </a>
 
-<a href='https://fb.cromex.org/select_group.php'>
+<a href='https://fb.cromex.org/select.php?type=Group'>
   <button class='button-page pure-button'>
     <div class='button-content-main'>
         <div class='page'><i class='fas fa-users'></i> Group
