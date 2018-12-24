@@ -15,9 +15,8 @@
 <body>
   <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal psheader">
-      <img class="pure-img-responsive psheaderimg" src="pslogo.jpg" alt="Pitstream">
+      <img class="pure-img-responsive psheaderimg" src="pslogo.png" alt="Pitstream Live - Create Facebook streams from everywhere">
 
     </div>
     <div class="home-menu pure-menu pure-menu-horizontal">
-                <ul class="pure-menu-list"><li class="pure-menu-item logged">
-              
+                

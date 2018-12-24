@@ -61,8 +61,48 @@ if (isset($accessToken) || isset($_SESSION['fb_token'])) {
 		->asArray();
 	//print_r($user);
 
+	$userpic = $fb->get('me/picture?redirect=0')->getGraphNode()->asArray();
+
   $loggedin = 1;
-	echo "You are logged in as $user[name]";
+	echo "
+
+
+
+
+
+<div class='button-content'>
+
+	<div class='home'>
+	<a href='./'>
+<i class='fas fa-home'></i>
+</a>
+</div>
+
+
+		<div class='push logged'>$user[name] </i></div>
+
+
+<div class='profilepic'> <img class='pure-img-responsive userpic' src='$userpic[url]' alt='$user[name]'></div>
+
+
+	</div>
+
+	 ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  } else {
    $loggedin = 0;

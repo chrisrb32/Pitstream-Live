@@ -41,7 +41,7 @@ $tasks = $page[tasks];
 	<a href=./define.php?pageid=$page[id]&type=Page>
 		<button class='button-page pure-button'>
 	  <div class='button-content'>
-	<div> <img class='pure-img-responsive' src='$pagepic[url]' alt='$page[name]'></div>
+	<div> <img class='pure-img-responsive targetpic' src='$pagepic[url]' alt='$page[name]'></div>
 	<div class='listentry'>$page[name]</div>";
 
 
@@ -60,23 +60,23 @@ echo "</div></button></a>";
 elseif ($_GET[type]=='Group'){
 
 //requesting list of pages managed by user (requires permission)
-$groups = $fb->get('me/groups?fields=permissions,name&limit=100')->getGraphEdge()->asArray();
+$groups = $fb->get('me/groups?fields=permissions,name&limit=3')->getGraphEdge()->asArray();
 
 //print_r ($groups);
 
 echo "<h2 class='content-head is-center'>Select a Group</h2>";
-
+echo "<div class='targetlist'>";
 foreach($groups as $group) {
 
 $grouppic = $fb->get('/' . $group[id] . '/picture?redirect=0')->getGraphNode()->asArray();
 
 
-  echo "<div class='targetlist'>
 
+echo"
 <a href=./define.php?groupid=$group[id]>
   <button class='button-page pure-button'>
   <div class='button-content'>
-<div> <img class='pure-img-responsive' src='$grouppic[url]' alt='$group[name]'></div>
+<div> <img class='pure-img-responsive targetpic' src='$grouppic[url]' alt='$group[name]'></div>
 <div class='listentry'>$group[name]</div>";
 
 
@@ -86,10 +86,16 @@ echo"<div class='push permitted'><i class='fas fa-check-circle'></i></div>";
 
 echo"<div class='push forbidden'><i class='fas fa-times-circle'></i></div>";
 }
-
-
 echo "</div></button></a>";
+
+
+
 }
+
+
+echo "</div>";
+
+
 
 }
 

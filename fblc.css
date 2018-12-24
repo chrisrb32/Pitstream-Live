@@ -60,17 +60,36 @@ border-bottom: 2px solid #9a9a9a;
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 10px;
+    font-size: 80%;
+    white-space: normal;
 }
 
 .permissions{
   vertical-align: middle;
 }
 
-.pure-img-responsive {
+
+.targetpic{
+  max-width: 30px;
+  min-width: 30px;
+}
+
+.userpic {
     max-width: 100%;
     min-width: 50px;
-    height: auto;
-    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 5px;
+}
+
+.user{
+  display: flex;
+}
+
+
+.profilepic{
+display: grid;
+min-width: 30px;
 }
 
 .input-group {
@@ -118,7 +137,6 @@ margin-right: 0px;
 
 .logged{
 color:white;
-padding: .5em 1em;
 display: block;
 }
 
@@ -141,7 +159,9 @@ display: block;
 
 }
 
-
+.pure-menu-horizontal .pure-menu-list {
+    display: flex;
+}
 
 /*
  * -- LAYOUT STYLES --
@@ -254,11 +274,21 @@ a.pure-button-primary {
  * I want to customize how my .pure-menu looks at the top of the page
  */
 
+.home{
+text-align: left;
+height: 100%;
+font-size: 40px;
+margin-top: auto;
+margin-bottom: auto;
+
+}
+
+
 .home-menu {
     padding: 0.5em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-    border-bottom: white 5px solid;
+    border-bottom: #a2a2a2 1px solid;
     background: #0042b1;
 }
 
@@ -313,6 +343,8 @@ a.pure-button-primary {
 /* We want to give the content area some more padding */
 .content {
     padding: 1em 1em 3em;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -408,10 +440,13 @@ a.pure-button-primary {
 .psheader{
   background-color: black;
   padding: 0px;
+  text-align: center;
 }
 
 .psheaderimg{
-  width:50%;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
 }
 
 
