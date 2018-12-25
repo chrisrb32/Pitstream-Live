@@ -25,7 +25,22 @@ if ($_GET[type]=='Page'){
 
 echo "<h2 class='content-head is-center'>Select a Page</h2>";
 
-$pages = $fb->get('/me/accounts')->getGraphEdge()->asArray();
+
+
+//$pages = $fb->get('/me/accounts')->getGraphEdge()->asArray();
+
+try {
+	$pages = $fb->get('/me/accounts')->getGraphEdge()->asArray();
+} catch(\Facebook\Exceptions\FacebookResponseException $e) {
+  $errortype="Graph API";
+  include "error.php";
+  exit;
+
+} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+  $errortype="SDK";
+  include "error.php";
+  exit;
+}
 
 //print_r ($pages);
 
@@ -60,7 +75,20 @@ echo "</div></button></a>";
 elseif ($_GET[type]=='Group'){
 
 //requesting list of pages managed by user (requires permission)
-$groups = $fb->get('me/groups?fields=permissions,name&limit=3')->getGraphEdge()->asArray();
+//
+
+try {
+	$groups = $fb->get('me/groups?fields=permissions,name&limit=3')->getGraphEdge()->asArray();
+} catch(\Facebook\Exceptions\FacebookResponseException $e) {
+  $errortype="Graph API";
+  include "error.php";
+  exit;
+
+} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+  $errortype="SDK";
+  include "error.php";
+  exit;
+}
 
 //print_r ($groups);
 
@@ -73,7 +101,7 @@ $grouppic = $fb->get('/' . $group[id] . '/picture?redirect=0')->getGraphNode()->
 
 
 echo"
-<a href=./define.php?groupid=$group[id]>
+<a href=./define.php?groupid=$group[id]&type=Group>
   <button class='button-page pure-button'>
   <div class='button-content'>
 <div> <img class='pure-img-responsive targetpic' src='$grouppic[url]' alt='$group[name]'></div>
@@ -88,14 +116,9 @@ echo"<div class='push forbidden'><i class='fas fa-times-circle'></i></div>";
 }
 echo "</div></button></a>";
 
-
-
 }
 
-
 echo "</div>";
-
-
 
 }
 
