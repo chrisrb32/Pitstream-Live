@@ -90,20 +90,6 @@ if (isset($accessToken) || isset($_SESSION['fb_token'])) {
 	 ";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  } else {
    $loggedin = 0;
 

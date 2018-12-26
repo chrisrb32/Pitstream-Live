@@ -61,12 +61,10 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
 
 ?>
 
-<div class="content">
-
   <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
 
   <script>
-     var clipboard = new ClipboardJS('.btn');
+     var clipboard = new ClipboardJS('.ctc-button');
      clipboard.on('success', function(e) {
          console.log(e);
      });
@@ -77,25 +75,8 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
      </script>
 
 
-  <script>  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '233920717367739',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v3.2'
-    });
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
+<div class='content'>
      <h2 class="content-head is-center">Go Live</h2>
 
 
@@ -109,7 +90,7 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
             <input class="copyinput" type="text" name="rtmplink" id="rtmplink" value="<?php echo  $livevideo[stream_url] ?>" readonly="readonly">
             <span class="input-group-button">
               <button class="pure-button ctc-button" type="button" data-clipboard-target="#rtmplink">
-                <i class="fas fa-clipboard-list"></i>Copy to Clipboard
+                <i class="fas fa-clipboard-list"></i> Copy to Clipboard
               </button>
             </span>
           </div>
@@ -119,7 +100,7 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
             <input class="copyinput" type="text" name="rtmpslink" id="rtmpslink" value="<?php echo $livevideo[secure_stream_url] ?>" readonly="readonly">
             <span class="input-group-button">
               <button class="pure-button ctc-button" type="button" data-clipboard-target="#rtmpslink">
-                <i class="fas fa-clipboard-list"></i>Copy to Clipboard
+                <i class="fas fa-clipboard-list"></i> Copy to Clipboard
               </button>
             </span>
           </div>
@@ -129,7 +110,7 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
             <input class="copyinput" type="text" name="serverurl" id="serverurl" value="Parser not yet implemented" readonly="readonly">
             <span class="input-group-button">
               <button class="pure-button ctc-button" type="button" data-clipboard-target="#serverurl">
-                <i class="fas fa-clipboard-list"></i>Copy to Clipboard
+                <i class="fas fa-clipboard-list"></i> Copy to Clipboard
               </button>
             </span>
           </div>
@@ -139,7 +120,7 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
             <input class="copyinput" type="text" name="streamkey" id="streamkey" value="Parser not yet implemented" readonly="readonly">
             <span class="input-group-button">
               <button class="pure-button ctc-button" type="button" data-clipboard-target="#streamkey">
-                <i class="fas fa-clipboard-list"></i>Copy to Clipboard
+                <i class="fas fa-clipboard-list"></i> Copy to Clipboard
               </button>
             </span>
           </div>
@@ -150,10 +131,10 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
 
 
 
-												<form class="pure-form pure-form-stacked" method="POST" action="publish.php">
-														<fieldset>
+												<form class="pure-form pure-form-stacked">
+
 																<label for="eventid">Live Video ID</label>
-																<input type="text" name="pagetoken" id="pagetoken" value="<?php echo $livevideo[id] ?>" readonly="readonly">
+																<input type="text" name="eventid" id="eventid" value="<?php echo $livevideo[id] ?>" readonly="readonly">
 
                                 <label for="title">Title</label>
 																<input type="text" name="title" id="title" value="<?php echo $livevideo[title] ?>" readonly="readonly">
@@ -167,10 +148,10 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
 																<label for="pageid" hidden>Page ID</label>
 																<input type="text" name="pageid" id="pageid" value="<?php echo $_POST[pageid] ?>" readonly="readonly" hidden>
 
+                              </form>
 
 
+															<a href="./check.php?eventid=<?php echo $livevideo[id] ?>">	<button type="submit" class="pure-button button-create" > <i class="fas fa-video"></i>    Check Status</button></a>
 
-																<button type="submit" class="pure-button button-create" > <i class="fas fa-video"></i>    Go Live</button>
-														</fieldset>
-												</form>
+
 	</div>
