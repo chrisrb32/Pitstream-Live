@@ -1,5 +1,5 @@
 
-![img](https://github.com/chrisrb32/Pitstream-Live/blob/master/pslogo.png)
+![img](https://github.com/chrisrb32/Pitstream-Live/blob/master/pslogo_gh.png)
 
 Use your GoPro Hero 7 to stream to Facebook Pages and Groups!
 
