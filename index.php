@@ -18,8 +18,6 @@ include "login.php";
 
 <?php
 
-//echo $loggedin . 'test2';
-
 if ($loggedin==1) {
 
 echo "
@@ -94,19 +92,6 @@ echo '
 
 
 }
-	//print_r($pages);
-	//print_r($pages[2][id]);
-	//var_dump($pages[2][id]);
-/*
-} else {
-
-  $permissions = array("publish_video", "publish_pages", "manage_pages", "publish_to_groups");
-
-	// making login with facebook url
-  $loginUrl = $helper->getLoginUrl(APP_URL, $permissions);
-  	echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-}
-*/
 ?>
 
 

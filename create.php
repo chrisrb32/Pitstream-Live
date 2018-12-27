@@ -35,9 +35,9 @@ $id=$_POST[groupid];
 }
 
 else {
+//No target id provided, redirecting to Home
 header('Location: ./');
 }
-
 
 
 
@@ -82,7 +82,7 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
 
       <div class="infobox"
          <label class="pure-form">
-            You Facebook Live Event was created. Now you can copy your RTMP Link to your Encoder App. If your Livestream is not automatically published, you can use to Go Live button to publish it.
+            You Facebook Live Event was created. Now you can copy your RTMP Link to your transmitter app/device (e.g. GoPro app). Your livestream should be published automatically once Facebook receives a video signal. You can check this by pressing the button check status.
           </label></div>
 
           <label class="copylabel" for="rtmplink">RTMP Link</label>
@@ -142,10 +142,10 @@ $livevideo = $fb->get('/' . $responsearray[id] . '?fields=id,title,description,s
 																<label for="description">Description</label>
 																<input type="text" name="description" id="description" value="<?php echo $livevideo[description] ?>" readonly="readonly">
 
-																<label for="page" hidden>Page</label>
+																<label for="page" hidden>Target</label>
 																<input type="text" name="page" id="page" value="<?php echo $_POST[page] ?>" readonly="readonly" hidden>
 
-																<label for="pageid" hidden>Page ID</label>
+																<label for="pageid" hidden>Target ID</label>
 																<input type="text" name="pageid" id="pageid" value="<?php echo $_POST[pageid] ?>" readonly="readonly" hidden>
 
                               </form>

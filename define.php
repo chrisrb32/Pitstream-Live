@@ -31,7 +31,7 @@ $accessToken = ($_SESSION[fb_token]);
 
   if ($_GET[type]=='Profile'){
 
-  //render form to define Livestream to Facebook Page
+  //render form to define Livestream to Facebook Profile
    echo"
    <div class='content'>
            <h2 class='content-head is-center'>Create Live Event</h2>
@@ -96,7 +96,7 @@ $accessToken = ($_SESSION[fb_token]);
 
 	 	$group = $fb->get('/' . $_GET[groupid])->getGraphNode()->asArray();
 
-	   //render form to define Livestream to Facebook Page
+	   //render form to define Livestream to Facebook Group
 	    echo"
 	    <div class='content'>
 	            <h2 class='content-head is-center'>Create Live Event</h2>
@@ -128,7 +128,7 @@ $accessToken = ($_SESSION[fb_token]);
 			}
 
 } else {
-
+	//Not logged in, redirecting to Home
   header('Location: ./');
 
 }

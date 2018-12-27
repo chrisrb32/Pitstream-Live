@@ -21,12 +21,11 @@ echo "<div class='content'>";
 
 
 if ($_GET[type]=='Page'){
-//requesting list of pages managed by user (requires permission)
 
 echo "<h2 class='content-head is-center'>Select a Page</h2>";
 
 
-
+//requesting list of pages managed by user (requires permission)
 //$pages = $fb->get('/me/accounts')->getGraphEdge()->asArray();
 
 try {
@@ -42,7 +41,6 @@ try {
   exit;
 }
 
-//print_r ($pages);
 
 foreach($pages as $page) {
 
@@ -90,8 +88,6 @@ try {
   exit;
 }
 
-//print_r ($groups);
-
 echo "<h2 class='content-head is-center'>Select a Group</h2>";
 echo "<div class='targetlist'>";
 foreach($groups as $group) {
@@ -124,17 +120,8 @@ echo "</div>";
 
 
 } else {
-
+//Not logged in, redirecting to Home
 header('Location: ./');
-
-/*
-  $permissions = array("publish_video", "publish_pages", "manage_pages", "publish_to_groups");
-
-	// making login with facebook url
-  $loginUrl = $helper->getLoginUrl(APP_URL, $permissions);
-  	echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-*/
-
 
 }
 
