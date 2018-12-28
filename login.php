@@ -10,8 +10,8 @@ require('./vendor/autoload.php');
 
 // app configurations
 // FB APP information needs to be put here
-define('APP_ID', '233920717367739');
-define('APP_SECRET', '7f5eb36b77971f1007337fcf04b23cc2');
+define('APP_ID', '');
+define('APP_SECRET', '');
 define('GRAPH_VERSION', 'v3.2');
 define('APP_URL', 'https://fb.cromex.org');
 
